@@ -70,10 +70,10 @@ module.exports= function(grunt) {
         imagemin: {
             dynamic: {
                 files: [{
-                    expand :true,
-                    cwd: './',
-                    src: ['img/*.{png,gif,jpg'],
-                    dest: 'dist/'
+                    expand: true,                  // Enable dynamic expansion
+                    cwd: './',                   // Src matches are relative to this path
+                    src: ['img/*.{png,jpg,gif}'],   // Actual patterns to match
+                    dest: 'dist/'                  // Destination path prefix
                 }]
             }
         },
@@ -146,5 +146,14 @@ module.exports= function(grunt) {
 
     grunt.registerTask('default',['browserSync','watch']);
 
-    grunt.registerTask('build',['clean','copy','imagemin','useminPrepare','concat','cssmin','uglify','filerev','usemin']);
+    grunt.registerTask('build',[
+        'clean',
+        'copy',
+        'imagemin',
+        'useminPrepare',
+        'concat',
+        'cssmin',
+        'uglify',
+        'filerev',
+        'usemin']);
 }
